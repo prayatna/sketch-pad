@@ -1,0 +1,23 @@
+/*fixed sketch pad size*/
+.container{
+	height:640px;
+	width:640px;
+	margin: auto;
+	background-color: green;
+
+}
+
+/*defining small squares*/
+.elements{
+
+	display:inline-block;
+	background-color:black;
+	margin:1px;
+}
+
+
+.content{
+	/*width:960px;*/
+	margin: auto;
+	text-align: center;
+}

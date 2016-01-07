@@ -9,7 +9,9 @@ $('#clearBtn').click(function() {
     });
 
 $('#newBtn').click(function() {
-	newGrid();
+	var size = prompt("how many square grids would you like?");
+	showGrid(size);
+	// newGrid();
 	hoverEffect()
     });
 
@@ -17,18 +19,25 @@ $('#newBtn').click(function() {
 
 //creates a grid
 function showGrid(size){
-	//removes all elements created previously
-	$('.elements').remove();
-	var box = (640/size)-2;
-	//loops to create  reccuring elements
-	for (i = 0; i < size; i++) {
-		for(j=0; j < size; j++){
-			$("<div class='elements'></div>").appendTo(".container");
-			}
-    }
-    //adjust the size of squares according to the input value
-    	$("div").find('.elements').css({'width': box+"px", 'height': box + "px"});
 
+	$("div.rows").remove(); 	//removes all rows created previously
+
+
+	var rowsHeight = $('.container').height()/size;
+	var rowsWidth = $('.container').width();
+
+	//loops to create  rows
+	for(i=0; i <size; i++){
+		$("<div class='rows'></div>").appendTo(".container").height(rowsHeight).width(rowsWidth);
+	}
+	//creating squares
+	for(j=0; j<size; j++){
+		$("<div class='elements'></div>").appendTo(".rows")
+	}
+
+	//assign elements height and width
+	$('.elements').width(rowsHeight-2);
+	$('.elements').height((rowsWidth/size)-2);
 }
 
 function hoverEffect(){
@@ -43,13 +52,14 @@ function hoverEffect(){
 
 //changes the color of all the squares to black (default)
 function buttonClear(){
-		$(".elements").css("background","black");
-   
+	$(".elements").css("background","white");
 }
 
 //creates a new grid calling the same showGrid function
 function newGrid(){
-	var gridNo = prompt("how many square grids would you like?")
+	var gridNo = prompt("")
 	buttonClear();
+	$(".elements").remove();
 	showGrid(gridNo);
+	
 }

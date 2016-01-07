@@ -1,18 +1,26 @@
 /*fixed sketch pad size*/
+body{
+	background: rgba(100,100,100,0.4);
+}
 .container{
 	height:640px;
 	width:640px;
 	margin: auto;
-	background-color: green;
 
 }
+
+.rows{
+	background-color: black;
+}
+
 
 /*defining small squares*/
 .elements{
 
 	display:inline-block;
-	background-color:black;
+	background-color:white;
 	margin:1px;
+	position: relative;
 }
 
 
